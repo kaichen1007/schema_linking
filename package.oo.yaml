@@ -1,0 +1,15 @@
+version: 0.0.3
+scripts:
+  # Script executed when the container is first loaded
+  # eg: bootstrap: pip install pandas
+  bootstrap: |
+    npm install
+    pip install -r requirements.txt
+dependencies:
+  {}
+name: schema_linking
+description: 使用自然语言执行SQL
+displayName: 自然语言SQL
+releaseNotes: first
+icon: ":fa6-solid:table:currentColor:"
+releaseType: project

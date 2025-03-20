@@ -1,0 +1,78 @@
+{
+  "nodes": {
+    "+python#2": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 689.2316396646129,
+          "y": -1873.7616486286713
+        }
+      },
+      "sections": {
+        "scriptlet": {
+          "cardCollapsed": true
+        }
+      }
+    },
+    "+python#3": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 1209.3244480608944,
+          "y": -1964.0372089334453
+        }
+      },
+      "sections": {
+        "scriptlet": {
+          "cardCollapsed": true
+        }
+      }
+    },
+    "+python#4": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": -485.93523585725075,
+          "y": -2018.0372089334453
+        }
+      },
+      "sections": {
+        "scriptlet": {
+          "cardCollapsed": true
+        }
+      }
+    },
+    "+python#5": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 117.58251135942317,
+          "y": -1689.56216202168
+        }
+      },
+      "sections": {
+        "scriptlet": {
+          "cardCollapsed": true
+        }
+      }
+    },
+    "+value#1": {
+      "contentWidth": 415,
+      "rfNode": {
+        "position": {
+          "x": 24.277146939284677,
+          "y": -2176.037208933445
+        }
+      },
+      "sections": {
+        "value": {
+          "height": {
+            "value1": {
+              "[]": 84
+            }
+          }
+        }
+      }
+    }
+  }
+}

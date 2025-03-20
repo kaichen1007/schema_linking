@@ -1,0 +1,176 @@
+aenodes:
+  - task:
+      ui:
+        default_width: 450
+      inputs_def:
+        - handle: user_input
+          json_schema:
+            type: string
+        - handle: model
+          json_schema:
+            type: string
+        - handle: api_key
+          json_schema:
+            type: string
+        - handle: base_url
+          json_schema:
+            type: string
+        - handle: table_info
+          description: Input
+          json_schema:
+            type: array
+      outputs_def:
+        - handle: output
+          description: Output
+          json_schema:
+            type: string
+      executor:
+        name: python
+        options:
+          entry: scriptlets/+python#2.py
+    title: LLM SQL
+    icon: ":logos:python:"
+    node_id: +python#2
+    inputs_from:
+      - handle: table_info
+        from_node:
+          - node_id: +python#5
+            output_handle: table_info
+      - handle: user_input
+        value: ""
+        from_node:
+          - node_id: +value#1
+            output_handle: value1
+      - handle: model
+        from_node:
+          - node_id: +value#1
+            output_handle: model
+      - handle: api_key
+        from_node:
+          - node_id: +value#1
+            output_handle: api_key
+      - handle: base_url
+        from_node:
+          - node_id: +value#1
+            output_handle: base_url
+      - handle: input1
+        value: "123"
+    description: 使用llm拿到sql
+  - task:
+      ui:
+        default_width: 450
+      inputs_def:
+        - handle: pool
+          description: Input
+          json_schema:
+            contentMediaType: oomol/var
+        - handle: llm_result
+          json_schema:
+            type: string
+      outputs_def:
+        - handle: output
+          description: Output
+          json_schema:
+            type: array
+      executor:
+        name: python
+        options:
+          entry: scriptlets/+python#3.py
+    title: Execute SQL
+    icon: ":logos:python:"
+    node_id: +python#3
+    inputs_from:
+      - handle: pool
+        from_node:
+          - node_id: +python#4
+            output_handle: pool
+      - handle: llm_result
+        from_node:
+          - node_id: +python#2
+            output_handle: output
+    description: 执行sql
+  - task:
+      ui:
+        default_width: 450
+      inputs_def:
+        - handle: host
+          description: Input
+          json_schema:
+            type: string
+        - handle: user
+          json_schema:
+            type: string
+        - handle: pwd
+          json_schema:
+            type: string
+        - handle: database
+          json_schema:
+            type: string
+      outputs_def:
+        - handle: pool
+          description: Output
+          json_schema:
+            contentMediaType: oomol/var
+      executor:
+        name: python
+        options:
+          entry: scriptlets/+python#4.py
+    title: Mysql Poll
+    icon: ":logos:python:"
+    node_id: +python#4
+    inputs_from:
+      - handle: host
+        value: host.containers.internal
+      - handle: user
+        value: root
+      - handle: pwd
+        value: your pwd
+      - handle: database
+        value: target database
+    description: 公共mysql连接池
+  - task:
+      ui:
+        default_width: 450
+      inputs_def:
+        - handle: pool
+          description: Input
+          json_schema:
+            contentMediaType: oomol/var
+      outputs_def:
+        - handle: table_info
+          description: Output
+          json_schema:
+            type: array
+      executor:
+        name: python
+        options:
+          entry: scriptlets/+python#5.py
+    title: Schemal
+    icon: ":logos:python:"
+    node_id: +python#5
+    inputs_from:
+      - handle: pool
+        from_node:
+          - node_id: +python#4
+            output_handle: pool
+    description: 获取所有表信息
+  - values:
+      - handle: value1
+        json_schema:
+          type: string
+          ui:widget: text
+        value: 获取数据结构课程成绩前十的学生信息
+      - handle: model
+        json_schema:
+          type: string
+        value: qwen-max
+      - handle: api_key
+        json_schema:
+          type: string
+        value: your api_key
+      - handle: base_url
+        json_schema:
+          type: string
+        value: https://dashscope.aliyuncs.com/compatible-mode/v1
+    title: Question
+    node_id: +value#1

@@ -1,0 +1,20 @@
+annotated-types==0.7.0
+anyio==4.9.0
+certifi==2025.1.31
+distro==1.9.0
+exceptiongroup==1.2.2
+h11==0.14.0
+httpcore==1.0.7
+httpx==0.28.1
+idna==3.10
+jiter==0.9.0
+mysql-connector-python==9.2.0
+oocana @ file:///root/.local/share/fnm/node-versions/v20.18.0/installation/lib/node_modules/%40oomol/python-sdk/dist/oocana-0.14.27-py3-none-any.whl#sha256=0842bc417b0de38854559dafacbbba6b6e132777dcd54adabf4e84376ad822a8
+openai==1.67.0
+paho-mqtt==2.1.0
+pydantic==2.10.6
+pydantic_core==2.27.2
+simplejson==3.20.1
+sniffio==1.3.1
+tqdm==4.67.1
+typing_extensions==4.12.2

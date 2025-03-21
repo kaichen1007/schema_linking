@@ -1,4 +1,4 @@
-aenodes:
+nodes:
   - task:
       ui:
         default_width: 450

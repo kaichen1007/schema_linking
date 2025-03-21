@@ -1,4 +1,4 @@
-version: 0.0.3
+version: 0.0.6
 scripts:
   # Script executed when the container is first loaded
   # eg: bootstrap: pip install pandas
@@ -13,3 +13,4 @@ displayName: 自然语言SQL
 releaseNotes: first
 icon: ":fa6-solid:table:currentColor:"
 releaseType: project
+repository: https://github.com/kaichen1007/schema_linking
